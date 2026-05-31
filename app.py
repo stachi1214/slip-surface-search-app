@@ -453,7 +453,7 @@ if st.button("すべり面探索を実行"):
             x_plot = np.linspace(-2 * H, L + 2 * H, 500)
             y_plot = ground_y(x_plot)
 
-            ax.plot(x_plot, y_plot, linewidth=3, label="地表面")
+            ax.plot(x_plot, y_plot, linewidth=3, label="Ground Surface")
             ax.fill_between(x_plot, y_plot, -1.5 * H, alpha=0.2)
 
             # 候補すべり面を薄く表示
@@ -491,7 +491,7 @@ if st.button("すべり面探索を実行"):
                     xs,
                     ys,
                     linewidth=4,
-                    label="最小安全率のすべり面",
+                    label="Slope Circle to minimize Fs",
                 )
 
                 # 交点
@@ -499,7 +499,7 @@ if st.button("すべり面探索を実行"):
                     [x1, x2],
                     [y1, y2],
                     s=70,
-                    label="地表面との交点",
+                    label="Intersections",
                 )
 
             # 円中心
@@ -507,13 +507,13 @@ if st.button("すべり面探索を実行"):
                 best["xc"],
                 best["yc"],
                 s=90,
-                label="円中心",
+                label="Center of Circle",
             )
 
             ax.set_aspect("equal", adjustable="box")
             ax.set_xlabel("x (m)")
             ax.set_ylabel("y (m)")
-            ax.set_title("円弧すべり面探索")
+            ax.set_title("Searchin for a Splope Circle to minimize Fs")
             ax.grid(True)
             ax.legend()
 
