@@ -4,6 +4,33 @@ import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
 import pandas as pd
 
+def check_password():
+    """簡易パスワード認証"""
+
+    if "password_correct" not in st.session_state:
+        st.session_state["password_correct"] = False
+
+    if st.session_state["password_correct"]:
+        return True
+
+    st.title("Password Required")
+    st.write("このアプリは授業中に指定されたタイミングで使用します。")
+
+    password = st.text_input("Password", type="password")
+
+    if st.button("Login"):
+        if password == st.secrets["APP_PASSWORD"]:
+            st.session_state["password_correct"] = True
+            st.rerun()
+        else:
+            st.error("Password is incorrect.")
+
+    return False
+
+
+if not check_password():
+    st.stop()
+
 # ------------------------------------------------------------
 # Matplotlibの日本語文字化け対策
 # ------------------------------------------------------------
