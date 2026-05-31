@@ -352,13 +352,13 @@ def draw_base_slope(ax):
     x_plot = np.linspace(-2 * H, L + 2 * H, 500)
     y_plot = ground_y(x_plot)
 
-    ax.plot(x_plot, y_plot, linewidth=3, label="地表面")
+    ax.plot(x_plot, y_plot, linewidth=3, label="Ground Surface")
     ax.fill_between(x_plot, y_plot, -1.5 * H, alpha=0.2)
 
     ax.set_aspect("equal", adjustable="box")
     ax.set_xlabel("x (m)")
     ax.set_ylabel("y (m)")
-    ax.set_title("斜面形状")
+    ax.set_title("Slope")
     ax.grid(True)
     ax.legend()
     ax.set_ylim(-1.2 * H, max(1.5 * H, y_max + 5))
